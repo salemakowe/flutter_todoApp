@@ -10,14 +10,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> items = ["Item 1", "Item 2", "Item 3"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: todoBGColor,
+      //appBar
       appBar: todoAppBar(),
+
+      //the body
+      body: Column(
+        children: [
+          SingleChildScrollView(
+            child: ReorderableListView(
+              onReorder: (oldIndex, newIndex) {},
+              children: [
+                for (final value in items)
+                  Text(
+                    value,
+                    key: Key(value),
+                  )
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
+  //---------------------------
 // AppBar customization
   AppBar todoAppBar() {
     return AppBar(
@@ -32,7 +54,6 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: todoBGColor,
 
       //IconButton
-
       leading: IconButton(
         onPressed: () {},
         icon: const Icon(
@@ -43,13 +64,9 @@ class _HomePageState extends State<HomePage> {
 
       //for display picture
       actions: [
-        Container(
-          height: MediaQuery.of(context).size.height * 0.5,
-          width: MediaQuery.of(context).size.width * 0.5,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset("img/avatar.jpeg"),
-          ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: Image.asset("assets/img/avatar.jpeg"),
         )
       ],
     );
