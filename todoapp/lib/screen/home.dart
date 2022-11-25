@@ -13,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: todoBGColor,
       appBar: todoAppBar(),
     );
   }
@@ -30,14 +31,27 @@ class _HomePageState extends State<HomePage> {
       elevation: 0,
       backgroundColor: todoBGColor,
 
+      //IconButton
+
       leading: IconButton(
         onPressed: () {},
-        icon: Icon(
+        icon: const Icon(
           Icons.menu,
           color: todoBlack,
         ),
       ),
-      //IconButton
+
+      //for display picture
+      actions: [
+        Container(
+          height: MediaQuery.of(context).size.height * 0.5,
+          width: MediaQuery.of(context).size.width * 0.5,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset("img/avatar.jpeg"),
+          ),
+        )
+      ],
     );
   }
 }
