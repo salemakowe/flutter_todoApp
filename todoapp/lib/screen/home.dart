@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> items = ["Item 1", "Item 2", "Item 3"];
+  final items = ["Item 1", "Item 2", "Item 3", "Item 4"];
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +20,20 @@ class _HomePageState extends State<HomePage> {
       appBar: todoAppBar(),
 
       //the body
-      body: Column(
+      body: ReorderableListView(
+        onReorder: (oldIndex, newIndex) {
+          setState(() {
+            if (newIndex > oldIndex) newIndex--;
+            final item = items.removeAt(oldIndex);
+            items.insert(newIndex, item);
+          });
+        },
         children: [
-          SingleChildScrollView(
-            child: ReorderableListView(
-              onReorder: (oldIndex, newIndex) {},
-              children: [
-                for (final value in items)
-                  Text(
-                    value,
-                    key: Key(value),
-                  )
-              ],
+          for (final item in items)
+            ListTile(
+              key: ValueKey(item),
+              title: Text(item),
             ),
-          ),
         ],
       ),
     );
@@ -64,14 +64,14 @@ class _HomePageState extends State<HomePage> {
 
       //for display picture
       actions: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: Image.asset(
-            "assets/img/avatar.jpeg",
-            height: 20,
-            width: 20,
-          ),
-        )
+        // ClipRRect(
+        //   borderRadius: BorderRadius.circular(50),
+        //   child: Image.asset(
+        //     "assets/img/avatar.jpeg",
+        //     height: 20,
+        //     width: 20,
+        //   ),
+        // ),
       ],
     );
   }
