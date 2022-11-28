@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
     "Item 8",
     "Item 9",
   ];
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +55,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
