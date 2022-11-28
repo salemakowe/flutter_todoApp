@@ -1,6 +1,9 @@
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
+import "package:google_nav_bar/google_nav_bar.dart";
 import 'package:todoapp/widgets/colors.dart';
+
+import '../widgets/bottom_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,7 +32,6 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: todoBGColor,
       //appBar
       appBar: todoAppBar(),
-
       drawer: Drawer(
         width: MediaQuery.of(context).size.width * 0.8,
       ),
@@ -54,19 +56,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 0,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: "Add Task",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Settings",
-          ),
-        ],
-      ),
+      bottomNavigationBar: const BottomNav(),
     );
   }
 
