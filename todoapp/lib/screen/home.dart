@@ -41,11 +41,13 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(20),
         child: ReorderableListView(
           onReorder: (oldIndex, newIndex) {
-            setState(() {
-              if (newIndex > oldIndex) newIndex--;
-              final item = items.removeAt(oldIndex);
-              items.insert(newIndex, item);
-            });
+            setState(
+              () {
+                if (newIndex > oldIndex) newIndex--;
+                final item = items.removeAt(oldIndex);
+                items.insert(newIndex, item);
+              },
+            );
           },
           children: [
             for (final item in items)
@@ -87,11 +89,25 @@ class _HomePageState extends State<HomePage> {
 
       //for display picture
       actions: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: Image.asset(
-            "assets/img/avatar.jpeg",
-          ),
+        Row(
+          children: [
+            Column(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.notifications_outlined),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.search),
+                ),
+              ],
+            ),
+          ],
         ),
       ],
     );
