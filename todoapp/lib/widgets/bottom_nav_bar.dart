@@ -12,8 +12,12 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return const GNav(
-      gap: 2,
+      //gap: 2,
       tabs: [
+        GButton(
+          icon: Icons.home,
+          text: "Home",
+        ),
         GButton(
           icon: Icons.account_circle,
           text: "Profile",
