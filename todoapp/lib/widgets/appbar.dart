@@ -25,14 +25,13 @@ class _TodoAppBarState extends State<TodoAppBar> {
       backgroundColor: todoBGColor,
       iconTheme: const IconThemeData(color: todoBlack),
 
-      //IconButton
-      // leading: IconButton(
-      //   onPressed: () {},
-      //   icon: const Icon(
-      //     Icons.menu,
-      //     color: todoBlack,
-      //   ),
-      // ),
+      leading: IconButton(
+        onPressed: () {},
+        icon: const Icon(
+          Icons.menu,
+          color: Colors.black,
+        ),
+      ),
 
       //for display picture
       actions: [
