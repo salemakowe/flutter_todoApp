@@ -14,7 +14,7 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
-  google_fonts: ^3.0.1
+  google_fonts: ^6.1.0
   get: ^4.6.5
   curved_navigation_bar: ^1.0.3
   google_nav_bar: ^5.0.6
@@ -23,7 +23,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 flutter:
 
