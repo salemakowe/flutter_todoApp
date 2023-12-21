@@ -6,8 +6,8 @@ import 'package:todoapp/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -26,8 +26,10 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      routes: {
+        '/': (context) => const SplashPage(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:todoapp/constants/mytexts.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        // body: ,
-        );
+    return Scaffold(
+      body: splash(),
+    );
+  }
+
+  splash() {
+    return Center(
+      child: SizedBox(
+        child: Lottie.network(
+          MyText.splashUrl,
+        ),
+      ),
+    );
   }
 }
